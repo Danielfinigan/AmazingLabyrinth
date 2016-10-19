@@ -3,8 +3,14 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	public static Player instance;
+
     [SerializeField] private float speed = 15;
     public Rigidbody rb = new Rigidbody();
+
+	void Awake () {
+		instance = this;
+	}
 	// Use this for initialization
 	void Start () {
 	
