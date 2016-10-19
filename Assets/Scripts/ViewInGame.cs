@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ViewInGame : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
+	public Text timerLabel;
+
 	void Update () {
-	
+		if (GameManager.instance.currentGameState == GameState.inGame) {
+			timerLabel.text = GameManager.instance.timer.ToString ();
+		}
 	}
 }

@@ -16,6 +16,9 @@ public class GameManager : MonoBehaviour {
 	public Canvas menuCanvas;
 	public Canvas inGameCanvas;
 
+	public float timer;
+	public static bool timeStarted = false;
+
 	// Use this for initialization
 
 	public void StartGame () {
@@ -61,5 +64,11 @@ public class GameManager : MonoBehaviour {
 			//EndGame ();
 		}
 		currentGameState = newGameState;
+	}
+
+	void Update () {
+		if (timeStarted) {
+			timer += Time.deltaTime;
+		}
 	}
 }
