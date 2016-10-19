@@ -22,6 +22,18 @@ public class GameManager : MonoBehaviour {
 		SetGameState (GameState.inGame);
 	}
 
+	public void GameOver () {
+		SetGameState (GameState.gameOver);
+	}
+
+	public void BackToMenu () {
+		Application.LoadLevel ("scene1");
+		SetGameState (GameState.menu);
+	}
+
+	public void YouWin () {
+		SetGameState (GameState.youWin);
+	}
 
 	void SetGameState (GameState newGameState) {
 		if (newGameState == GameState.menu) {
