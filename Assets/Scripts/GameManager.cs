@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public GameState currentGameState = GameState.menu;
 	public Canvas menuCanvas;
+	public Canvas inGameCanvas;
+
 	// Use this for initialization
 
 	public void StartGame () {
@@ -24,17 +26,17 @@ public class GameManager : MonoBehaviour {
 	void SetGameState (GameState newGameState) {
 		if (newGameState == GameState.menu) {
 			menuCanvas.enabled = true;
-			//inGameCanvas.enabled = false;
+			inGameCanvas.enabled = false;
 			//gameOverCanvas.enabled = false;
 			//youWinCanvas.enabled = false;
 		} else if (newGameState == GameState.inGame) {
 			menuCanvas.enabled = false;
-			//inGameCanvas.enabled = true;
+			inGameCanvas.enabled = true;
 			//gameOverCanvas.enabled = false;
 			//youWinCanvas.enabled = false;
 		} else if (newGameState == GameState.gameOver) {
 			menuCanvas.enabled = false;
-			//inGameCanvas.enabled = false;
+			inGameCanvas.enabled = false;
 			//gameOverCanvas.enabled = true;
 			//youWinCanvas.enabled = false;
 			//EndGame ();
