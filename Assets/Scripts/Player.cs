@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 15;
     public Rigidbody rb = new Rigidbody();
 	// Use this for initialization
 	void Start () {
