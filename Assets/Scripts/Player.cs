@@ -5,19 +5,15 @@ public class Player : MonoBehaviour {
 
 	public static Player instance;
 
-    [SerializeField] private float speed = 15;
+    [SerializeField] private float speed = 0f;
     public Rigidbody rb = new Rigidbody();
 
 	void Awake () {
 		instance = this;
 	}
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	public void StartGame() {
+		speed = 15f;
 	}
 
     void FixedUpdate()

@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour {
 
 	public void StartGame () {
 		SetGameState (GameState.inGame);
+		Player.instance.StartGame ();
 		timeStarted = true;
 	}
 
