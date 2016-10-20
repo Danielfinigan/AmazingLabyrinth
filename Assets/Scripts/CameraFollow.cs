@@ -9,12 +9,11 @@ public class CameraFollow : MonoBehaviour {
     {
         Vector3 rotation = new Vector3(45, 0, 0);
         transform.eulerAngles = rotation;
+        transform.position = new Vector3(followObject.position.x, followObject.position.y + 20, followObject.position.z - 30);
     }
 
     void Update()
     {        
-        //Vector3 direction = followObject.GetComponent<Rigidbody>().velocity.normalized;
-        //Vector3 offset = distance * direction * rotation;
-        transform.position = new Vector3(0, followObject.position.y + 20, followObject.position.z - 30);
+        transform.position = new Vector3(followObject.position.x, followObject.position.y + 20, followObject.position.z - 30);
     }
 }
