@@ -14,14 +14,13 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance;
 	public GameState currentGameState = GameState.menu;
-	public Canvas menuCanvas;
-	public Canvas inGameCanvas;
-	public Canvas levelCompleteCanvas;
-	public Canvas gameOverCanvas;
-	public Canvas youWinCanvas;
+	public Canvas menuCanvas;  //start menu
+	public Canvas inGameCanvas;  //timer
+	public Canvas levelCompleteCanvas;  //after every complete level
+	public Canvas gameOverCanvas;  //appears when player touches kill trigger
+	public Canvas youWinCanvas;  //appears after completing third level
 
 	public float timer;
-	//public string minutes;
 	public string seconds;
 	public static bool timeStarted = false;
 
@@ -35,6 +34,8 @@ public class GameManager : MonoBehaviour {
 		timeStarted = true;
 	}
 
+	/*all this crap handles setting the 
+	 * highscore when the level is completed*/
 	public void LevelComplete () {
 		/* if this is scene 1 and this time 
 		 * was faster than 1000 seconds...*/
@@ -76,6 +77,9 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void NextLevel () {
+		/*when the button is clicked load the next level
+		 * if we are on the last level, go to the 
+		 * "You Win" screen*/
 		if (Application.loadedLevelName == "scene1") {
 			Application.LoadLevel ("scene2");
 		} else if (Application.loadedLevelName == "scene2") {

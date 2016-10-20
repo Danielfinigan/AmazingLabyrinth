@@ -13,7 +13,8 @@ public class Player : MonoBehaviour {
 	}
 
 	public void StartGame() {
-		speed = 15f;
+		//give the plaer starting speed
+		speed = 15f;  
 	}
 
     void FixedUpdate()

@@ -15,6 +15,11 @@ public class ViewLevelComplete : MonoBehaviour {
 			if (Application.loadedLevelName == "scene1") {
 				fastestLabel.text = ("Fastest Time:"+PlayerPrefs.GetFloat ("time1").ToString ("0000"));
 			}
+			else if (Application.loadedLevelName == "scene2") {
+				fastestLabel.text = ("Fastest Time:"+PlayerPrefs.GetFloat ("time2").ToString ("0000"));
+			}
+			else fastestLabel.text = ("Fastest Time:"+PlayerPrefs.GetFloat ("time2").ToString ("0000"));
+			
 		}
 	}
 }
