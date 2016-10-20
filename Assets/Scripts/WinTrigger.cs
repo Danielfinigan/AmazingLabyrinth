@@ -7,7 +7,7 @@ public class WinTrigger : MonoBehaviour {
 	void OnTriggerEnter (Collider other)
 	{
 		if (other.tag == "Player") {
-			GameManager.instance.levelComplete();
+			GameManager.instance.LevelComplete();
 		}
 	}
 }

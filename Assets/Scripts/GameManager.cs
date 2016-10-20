@@ -34,11 +34,11 @@ public class GameManager : MonoBehaviour {
 		timeStarted = true;
 	}
 
-	public void levelComplete () {
+	public void LevelComplete () {
 		SetGameState (GameState.levelComplete);
 	}
 
-	public void gameOver () {
+	public void GameOver () {
 		SetGameState (GameState.gameOver);
 	}
 
