@@ -3,15 +3,18 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-    public float speed = 15;
+public static Player instance;
+
+    [SerializeField] private float speed = 0f;
     public Rigidbody rb = new Rigidbody();
-	// Use this for initialization
-	void Start () {
-	
+
+	void Awake () {
+		instance = this;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	public void StartGame() {
+		//give the plaer starting speed
+		speed = 15f;  
 	}
 
     void FixedUpdate()

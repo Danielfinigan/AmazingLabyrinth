@@ -3,6 +3,8 @@
 # =============== #
 Temp/
 Library/
+Library/ScriptAssemblies/Assembly-CSharp.dll
+Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
