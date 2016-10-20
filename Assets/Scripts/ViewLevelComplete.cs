@@ -2,13 +2,13 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class ViewInGame : MonoBehaviour {
+public class ViewLevelComplete : MonoBehaviour {
 
 	public Text timerLabel;
 
 	void Update () {
 		if (GameManager.instance.currentGameState == GameState.inGame) {
-			timerLabel.text = (GameManager.instance.minutes) + ":" + (GameManager.instance.seconds);
+			timerLabel.text = ("Your Score:"+GameManager.instance.minutes) + ":" + (GameManager.instance.seconds);
 		}
 	}
 }

@@ -5,7 +5,7 @@ public enum GameState
 {
 	menu,
 	inGame,
-	gameOver,
+	levelComplete,
 	youWin
 }
 	
@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 	public GameState currentGameState = GameState.menu;
 	public Canvas menuCanvas;
 	public Canvas inGameCanvas;
+	public Canvas levelCompleteCanvas;
 
 	public float timer;
 	public string minutes;
@@ -30,8 +31,8 @@ public class GameManager : MonoBehaviour {
 		timeStarted = true;
 	}
 
-	public void GameOver () {
-		SetGameState (GameState.gameOver);
+	public void levelComplete () {
+		SetGameState (GameState.levelComplete);
 	}
 
 	public void BackToMenu () {
@@ -47,17 +48,17 @@ public class GameManager : MonoBehaviour {
 		if (newGameState == GameState.menu) {
 			menuCanvas.enabled = true;
 			inGameCanvas.enabled = false;
-			//gameOverCanvas.enabled = false;
+			levelCompleteCanvas.enabled = false;
 			//youWinCanvas.enabled = false;
 		} else if (newGameState == GameState.inGame) {
 			menuCanvas.enabled = false;
 			inGameCanvas.enabled = true;
-			//gameOverCanvas.enabled = false;
+			levelCompleteCanvas.enabled = false;
 			//youWinCanvas.enabled = false;
-		} else if (newGameState == GameState.gameOver) {
+		} else if (newGameState == GameState.levelComplete) {
 			menuCanvas.enabled = false;
 			inGameCanvas.enabled = false;
-			//gameOverCanvas.enabled = true;
+			levelCompleteCanvas.enabled = true;
 			//youWinCanvas.enabled = false;
 			//EndGame ();
 		}
