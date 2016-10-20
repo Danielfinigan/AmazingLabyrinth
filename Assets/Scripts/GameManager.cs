@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour {
 	public Canvas youWinCanvas;
 
 	public float timer;
-	public string minutes;
+	//public string minutes;
 	public string seconds;
 	public static bool timeStarted = false;
 
@@ -36,6 +36,14 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void LevelComplete () {
+		/* if this is scene1 and the faster time for 
+		 * this time was faster than 1000 seconds...*/
+		if (Application.loadedLevelName == "scene1" && 
+			PlayerPrefs.GetFloat ("time1", 1000f) > this.timer) {
+			/* ...then set the fastest time for 
+			 * scene 1 to this time*/
+			PlayerPrefs.SetFloat ("time1", this.timer);
+		}
 		SetGameState (GameState.levelComplete);
 	}
 
