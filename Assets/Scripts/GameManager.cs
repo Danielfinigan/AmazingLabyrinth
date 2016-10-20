@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour {
 	public Canvas inGameCanvas;
 	public Canvas levelCompleteCanvas;
 	public Canvas gameOverCanvas;
+	public Canvas youWinCanvas;
 
 	public float timer;
 	public string minutes;
@@ -72,27 +73,25 @@ public class GameManager : MonoBehaviour {
 			inGameCanvas.enabled = true;
 			levelCompleteCanvas.enabled = false;
 			gameOverCanvas.enabled = false;
-			//youWinCanvas.enabled = false;
+			youWinCanvas.enabled = false;
 		} else if (newGameState == GameState.levelComplete) {
 			menuCanvas.enabled = false;
 			inGameCanvas.enabled = false;
 			levelCompleteCanvas.enabled = true;
-			//youWinCanvas.enabled = false;
-			//EndGame ();
+			youWinCanvas.enabled = false;
 		} else if (newGameState == GameState.gameOver) {
 			menuCanvas.enabled = false;
 			inGameCanvas.enabled = false;
 			levelCompleteCanvas.enabled = false;
 			gameOverCanvas.enabled = true;
-			//youWinCanvas.enabled = false;
-			//EndGame ();
+			youWinCanvas.enabled = false;
 		}
 		else if (newGameState == GameState.youWin) {
 			menuCanvas.enabled = false;
-			//inGameCanvas.enabled = false;
-			//gameOverCanvas.enabled = false;
-			//youWinCanvas.enabled = true;
-			//EndGame ();
+			inGameCanvas.enabled = false;
+			gameOverCanvas.enabled = false;
+			levelCompleteCanvas.enabled = false;
+			youWinCanvas.enabled = true;
 		}
 		currentGameState = newGameState;
 	}
