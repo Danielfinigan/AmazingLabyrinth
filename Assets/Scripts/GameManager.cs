@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour {
 	public string seconds;
 	public static bool timeStarted = false;
 
-	// Use this for initialization
+	public void Awake () {
+		instance = this;
+	}
 
 	public void StartGame () {
 		SetGameState (GameState.inGame);
