@@ -8,7 +8,8 @@ public class ViewLevelComplete : MonoBehaviour {
 
 	void Update () {
 		if (GameManager.instance.currentGameState == GameState.inGame) {
-			timerLabel.text = ("Your Score:"+GameManager.instance.minutes) + ":" + (GameManager.instance.seconds);
+			//timerLabel.text = ("Your Score:"+GameManager.instance.minutes) + ":" + (GameManager.instance.seconds);
+			timerLabel.text = ("Your Score:"+GameManager.instance.seconds);
 		}
 	}
 }

@@ -99,8 +99,8 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		if (timeStarted == true) {
 			timer += Time.deltaTime;
-			minutes = Mathf.Floor (timer / 60).ToString ("00");
-			seconds = (timer % 60).ToString ("00");
+			//minutes = Mathf.Floor (timer / 60).ToString ("00");
+			seconds = (timer ).ToString ("0000");
 		}
 	}
 }

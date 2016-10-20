@@ -8,7 +8,8 @@ public class ViewInGame : MonoBehaviour {
 
 	void Update () {
 		if (GameManager.instance.currentGameState == GameState.inGame) {
-			timerLabel.text = (GameManager.instance.minutes) + ":" + (GameManager.instance.seconds);
+			//timerLabel.text = (GameManager.instance.minutes) + ":" + (GameManager.instance.seconds);
+			timerLabel.text = (GameManager.instance.seconds);
 		}
 	}
 }
