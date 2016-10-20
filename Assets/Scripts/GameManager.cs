@@ -17,12 +17,15 @@ public class GameManager : MonoBehaviour {
 	public Canvas inGameCanvas;
 
 	public float timer;
+	public string minutes;
+	public string seconds;
 	public static bool timeStarted = false;
 
 	// Use this for initialization
 
 	public void StartGame () {
 		SetGameState (GameState.inGame);
+		timeStarted = true;
 	}
 
 	public void GameOver () {
@@ -67,8 +70,10 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Update () {
-		if (timeStarted) {
+		if (timeStarted == true) {
 			timer += Time.deltaTime;
+			minutes = Mathf.Floor (timer / 60).ToString ("00");
+			seconds = (timer % 60).ToString ("00");
 		}
 	}
 }
