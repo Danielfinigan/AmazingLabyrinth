@@ -51,6 +51,15 @@ public class GameManager : MonoBehaviour {
 		SetGameState (GameState.youWin);
 	}
 
+	public void NextLevel () {
+		if (Application.loadedLevelName == "scene1") {
+			Application.LoadLevel ("scene2");
+		} else if (Application.loadedLevelName == "scene2") {
+			Application.LoadLevel ("scene3");
+		} else
+			YouWin ();
+	}
+
 	void SetGameState (GameState newGameState) {
 		if (newGameState == GameState.menu) {
 			menuCanvas.enabled = true;
@@ -95,5 +104,4 @@ public class GameManager : MonoBehaviour {
 			seconds = (timer % 60).ToString ("00");
 		}
 	}
-		
 }
