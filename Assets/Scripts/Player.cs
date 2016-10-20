@@ -14,7 +14,8 @@ public static Player instance;
 
 	public void StartGame() {
 		//give the plaer starting speed
-		speed = 15f;  
+        if(GameManager.instance.currentGameState == GameState.inGame)
+		    speed = 15f;  
 	}
 
     void FixedUpdate()
