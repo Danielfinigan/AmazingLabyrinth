@@ -8,7 +8,7 @@ public class ViewInGame : MonoBehaviour {
 
 	void Update () {
 		if (GameManager.instance.currentGameState == GameState.inGame) {
-			Debug.Log ("kill me");
+			timerLabel.text = (GameManager.instance.minutes) + ":" + (GameManager.instance.seconds);
 		}
 	}
 
