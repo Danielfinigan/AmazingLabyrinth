@@ -5,6 +5,7 @@ public enum GameState
 {
 	menu,
 	inGame,
+	gameOver,
 	levelComplete,
 	youWin
 }
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	public Canvas menuCanvas;
 	public Canvas inGameCanvas;
 	public Canvas levelCompleteCanvas;
+	public Canvas gameOverCanvas;
 
 	public float timer;
 	public string minutes;
@@ -36,6 +38,10 @@ public class GameManager : MonoBehaviour {
 		SetGameState (GameState.levelComplete);
 	}
 
+	public void gameOver () {
+		SetGameState (GameState.gameOver);
+	}
+
 	public void BackToMenu () {
 		Application.LoadLevel ("scene1");
 		SetGameState (GameState.menu);
@@ -50,16 +56,25 @@ public class GameManager : MonoBehaviour {
 			menuCanvas.enabled = true;
 			inGameCanvas.enabled = false;
 			levelCompleteCanvas.enabled = false;
+			gameOverCanvas.enabled = false;
 			//youWinCanvas.enabled = false;
 		} else if (newGameState == GameState.inGame) {
 			menuCanvas.enabled = false;
 			inGameCanvas.enabled = true;
 			levelCompleteCanvas.enabled = false;
+			gameOverCanvas.enabled = false;
 			//youWinCanvas.enabled = false;
 		} else if (newGameState == GameState.levelComplete) {
 			menuCanvas.enabled = false;
 			inGameCanvas.enabled = false;
 			levelCompleteCanvas.enabled = true;
+			//youWinCanvas.enabled = false;
+			//EndGame ();
+		} else if (newGameState == GameState.gameOver) {
+			menuCanvas.enabled = false;
+			inGameCanvas.enabled = false;
+			levelCompleteCanvas.enabled = false;
+			gameOverCanvas.enabled = true;
 			//youWinCanvas.enabled = false;
 			//EndGame ();
 		}
