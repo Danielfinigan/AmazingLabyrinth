@@ -95,4 +95,5 @@ public class GameManager : MonoBehaviour {
 			seconds = (timer % 60).ToString ("00");
 		}
 	}
+		
 }
