@@ -6,7 +6,6 @@ public class ViewLevelComplete : MonoBehaviour {
 
 	public Text timerLabel;
 	public Text fastestLabel;
-	private string fastest;
 
 	void Update () {
 		if (GameManager.instance.currentGameState == GameState.inGame) {
@@ -14,8 +13,7 @@ public class ViewLevelComplete : MonoBehaviour {
 			timerLabel.text = ("Your Time:"+GameManager.instance.seconds);
 
 			if (Application.loadedLevelName == "scene1") {
-				fastest = PlayerPrefs.GetFloat ("time1").ToString ("0000");
-				fastestLabel.text = ("Fastest Time:"+fastest);
+				fastestLabel.text = ("Fastest Time:"+PlayerPrefs.GetFloat ("time1").ToString ("0000"));
 			}
 		}
 	}

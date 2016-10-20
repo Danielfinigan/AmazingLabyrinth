@@ -36,13 +36,28 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void LevelComplete () {
-		/* if this is scene1 and the faster time for 
-		 * this time was faster than 1000 seconds...*/
+		/* if this is scene 1 and this time 
+		 * was faster than 1000 seconds...*/
 		if (Application.loadedLevelName == "scene1" && 
 			PlayerPrefs.GetFloat ("time1", 1000f) > this.timer) {
 			/* ...then set the fastest time for 
 			 * scene 1 to this time*/
 			PlayerPrefs.SetFloat ("time1", this.timer);
+		} 
+		/* if this is scene 2 and this time 
+		 * was faster than 1000 seconds...*/
+		else if (Application.loadedLevelName == "scene2" && 
+			PlayerPrefs.GetFloat ("time2", 1000f) > this.timer) {
+			/* ...then set the fastest time for 
+			 * scene 2 to this time*/
+			PlayerPrefs.SetFloat ("time2", this.timer);
+		}
+		/* this must be scene 3.  if this time
+		 * was faster than 1000 seconds...*/
+		else if (PlayerPrefs.GetFloat ("time3",1000f) > this.timer) {
+			/*...then set the fastest time for 
+			 * scene 3 to this time*/
+			PlayerPrefs.SetFloat ("time2", this.timer);
 		}
 		SetGameState (GameState.levelComplete);
 	}
@@ -75,7 +90,7 @@ public class GameManager : MonoBehaviour {
 			inGameCanvas.enabled = false;
 			levelCompleteCanvas.enabled = false;
 			gameOverCanvas.enabled = false;
-			//youWinCanvas.enabled = false;
+			youWinCanvas.enabled = false;
 		} else if (newGameState == GameState.inGame) {
 			menuCanvas.enabled = false;
 			inGameCanvas.enabled = true;
@@ -93,8 +108,7 @@ public class GameManager : MonoBehaviour {
 			levelCompleteCanvas.enabled = false;
 			gameOverCanvas.enabled = true;
 			youWinCanvas.enabled = false;
-		}
-		else if (newGameState == GameState.youWin) {
+		} else if (newGameState == GameState.youWin) {
 			menuCanvas.enabled = false;
 			inGameCanvas.enabled = false;
 			gameOverCanvas.enabled = false;
@@ -107,7 +121,6 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		if (timeStarted == true) {
 			timer += Time.deltaTime;
-			//minutes = Mathf.Floor (timer / 60).ToString ("00");
 			seconds = (timer ).ToString ("0000");
 		}
 	}
