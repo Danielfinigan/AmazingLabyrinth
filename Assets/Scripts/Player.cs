@@ -15,8 +15,10 @@ public static Player instance;
 	public void StartGame() {
 		//give the plaer starting speed
         if(GameManager.instance.currentGameState == GameState.inGame)
-		    speed = 15f;  
-	}
+		    speed = 15f;
+        //PlayerPrefs.DeleteAll();
+
+    }
 
     void FixedUpdate()
     {

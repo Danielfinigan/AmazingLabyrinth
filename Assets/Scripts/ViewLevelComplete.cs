@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class ViewLevelComplete : MonoBehaviour {
@@ -12,10 +13,10 @@ public class ViewLevelComplete : MonoBehaviour {
 			//timerLabel.text = ("Your Score:"+GameManager.instance.minutes) + ":" + (GameManager.instance.seconds);
 			timerLabel.text = ("Your Time:"+GameManager.instance.seconds);
 
-			if (Application.loadedLevelName == "scene1") {
-				fastestLabel.text = ("Fastest Time:"+PlayerPrefs.GetFloat ("time1").ToString ("0000"));
+			if (SceneManager.GetActiveScene().name == "scene1") {
+				fastestLabel.text = ("Fastest Time:" + PlayerPrefs.GetFloat ("time1").ToString ("0000"));
 			}
-			else if (Application.loadedLevelName == "scene2") {
+			else if (SceneManager.GetActiveScene().name == "scene2") {
 				fastestLabel.text = ("Fastest Time:"+PlayerPrefs.GetFloat ("time2").ToString ("0000"));
 			}
 			else fastestLabel.text = ("Fastest Time:"+PlayerPrefs.GetFloat ("time3").ToString ("0000"));
