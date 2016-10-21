@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public enum GameState
@@ -67,10 +68,14 @@ public class GameManager : MonoBehaviour {
 		SetGameState (GameState.gameOver);
 	}
 
-	public void BackToMenu () {
-		Application.LoadLevel ("scene1");
-		SetGameState (GameState.menu);
+	public void RestartLevel () {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("scene1");
+    }
 
 	public void YouWin () {
 		SetGameState (GameState.youWin);
