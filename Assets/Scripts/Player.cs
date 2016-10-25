@@ -6,6 +6,7 @@ public class Player : MonoBehaviour {
 public static Player instance;
 
     [SerializeField] private float speed = 0f;
+    public bool controlReverse = false;
     public Rigidbody rb = new Rigidbody();
 
 	void Awake () {
@@ -22,7 +23,15 @@ public static Player instance;
 
     void FixedUpdate()
     {
-        rb.AddForce(Input.GetAxis("Horizontal") * speed, 0, 0);
-        rb.AddForce(0, 0, Input.GetAxis("Vertical") * speed);
+        if(!controlReverse)
+        {
+            rb.AddForce(Input.GetAxis("Horizontal") * speed, 0, 0);
+            rb.AddForce(0, 0, Input.GetAxis("Vertical") * speed);
+        }
+        else
+        {
+            rb.AddForce(Input.GetAxis("Horizontal") * speed * -1, 0, 0);
+            rb.AddForce(0, 0, Input.GetAxis("Vertical") * speed * -1);
+        }
     }
 }

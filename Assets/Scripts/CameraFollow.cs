@@ -4,7 +4,9 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
+    public static CameraFollow instance;
     public Transform followObject;
+    public bool cameraTwist = false;
     void Start()
     {
 
@@ -17,7 +19,17 @@ public class CameraFollow : MonoBehaviour {
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "scene3")
-            transform.position = new Vector3(followObject.position.x, followObject.position.y + 10, followObject.position.z - 5);
+        {
+            if (!cameraTwist)
+            {
+                transform.position = new Vector3(followObject.position.x, followObject.position.y + 10, followObject.position.z - 5);
+            }
+            else
+            {
+                transform.position = new Vector3(followObject.position.x + 5, followObject.position.y + 10, followObject.position.z);
+            }
+        }
+            
         else
             transform.position = new Vector3(followObject.position.x, followObject.position.y + 30, followObject.position.z - 25);
     }
