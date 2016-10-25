@@ -22,7 +22,7 @@ public static Player instance;
     }
 
     void FixedUpdate()
-    {
+    {        
         if(!controlReverse)
         {
             rb.AddForce(Input.GetAxis("Horizontal") * speed, 0, 0);

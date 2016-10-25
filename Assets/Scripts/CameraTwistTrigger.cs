@@ -10,9 +10,9 @@ public class CameraTwistTrigger : MonoBehaviour {
         transform.position = new Vector3(followObject.position.x +5, followObject.position.y + 10, followObject.position.z);*/
         if(other.tag == "Player")
         {
-            Player.instance.controlReverse = true;
-            CameraFollow.instance.cameraTwist = true;
-            Debug.Log("Camera Twist");
+            Player.instance.controlReverse = !Player.instance.controlReverse;
+            CameraFollow.instance.isTwist = !CameraFollow.instance.isTwist;
+            CameraFollow.instance.CameraRotate();
         }
     }
 	// Use this for initialization

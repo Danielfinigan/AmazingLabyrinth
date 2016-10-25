@@ -5,8 +5,15 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour {
 
     public static CameraFollow instance;
+
     public Transform followObject;
-    public bool cameraTwist = false;
+    public bool isTwist = false;
+
+    void Awake ()
+    {
+        instance = this;
+    }
+
     void Start()
     {
 
@@ -20,17 +27,25 @@ public class CameraFollow : MonoBehaviour {
     {
         if (SceneManager.GetActiveScene().name == "scene3")
         {
-            if (!cameraTwist)
-            {
-                transform.position = new Vector3(followObject.position.x, followObject.position.y + 10, followObject.position.z - 5);
-            }
-            else
-            {
-                transform.position = new Vector3(followObject.position.x + 5, followObject.position.y + 10, followObject.position.z);
-            }
+            CameraTwist(isTwist);
         }
-            
+
         else
             transform.position = new Vector3(followObject.position.x, followObject.position.y + 30, followObject.position.z - 25);
+    }
+
+    void CameraTwist(bool twist)
+    {
+        if (!twist)
+            transform.position = new Vector3(followObject.position.x, followObject.position.y + 10, followObject.position.z - 5);
+        else
+            transform.position = new Vector3(followObject.position.x, followObject.position.y + 10, followObject.position.z + 5);
+    }
+
+    public void CameraRotate()
+    {
+        float yRotation = transform.eulerAngles.y;
+        Vector3 rotation = new Vector3(45, yRotation + 180, 0);
+        transform.eulerAngles = rotation;
     }
 }

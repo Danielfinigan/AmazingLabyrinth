@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour {
 
 	public void GameOver () {
 		SetGameState (GameState.gameOver);
+
 	}
 
 	public void RestartLevel () {

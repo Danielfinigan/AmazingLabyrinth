@@ -6,8 +6,10 @@ public class KillTrigger : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.tag == "Player") {
-			GameManager.instance.GameOver();
-		}
+        if (other.tag == "Player")
+        {
+            GameManager.instance.GameOver();
+            Player.instance.rb.constraints = RigidbodyConstraints.FreezePosition;
+        }
 	}
 }
