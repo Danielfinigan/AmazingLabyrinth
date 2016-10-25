@@ -1,19 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
 
     public Transform followObject;
-    public float distance = 2f;
     void Start()
     {
-        Vector3 rotation = new Vector3(60, 0, 0);
-        transform.eulerAngles = rotation;
-        transform.position = new Vector3(followObject.position.x, followObject.position.y + 20, followObject.position.z - 15);
+        if (SceneManager.GetActiveScene().name == "scene3")
+            transform.position = new Vector3(followObject.position.x, followObject.position.y + 10, followObject.position.z - 5);
+        else
+            transform.position = new Vector3(followObject.position.x, followObject.position.y + 30, followObject.position.z - 25);
     }
 
     void Update()
-    {        
-        transform.position = new Vector3(followObject.position.x, followObject.position.y + 10, followObject.position.z - 5);
+    {
+        if (SceneManager.GetActiveScene().name == "scene3")
+            transform.position = new Vector3(followObject.position.x, followObject.position.y + 10, followObject.position.z - 5);
+        else
+            transform.position = new Vector3(followObject.position.x, followObject.position.y + 30, followObject.position.z - 25);
     }
 }
