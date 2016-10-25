@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour {
 
 	public float timer;
 	public string seconds;
+    public bool newHighScore;
 	public static bool timeStarted = false;
 
 	public void Awake () {
@@ -39,38 +40,54 @@ public class GameManager : MonoBehaviour {
        // Debug.Log("scene1 high score = " + PlayerPrefs.GetFloat("time1"));
     }
 
-	/*all this crap handles setting the 
+    /*all this crap handles setting the 
 	 * highscore when the level is completed*/
-	public void LevelComplete () {
+    public void LevelComplete() {
         /* if this is scene 1 and this time 
 		 * was faster than 1000 seconds...*/
-        
-        if (SceneManager.GetActiveScene().name == "scene1" && 
-			PlayerPrefs.GetFloat ("time1") > this.timer) {
-            /* ...then set the fastest time for 
-			 * scene 1 to this time*/
-            PlayerPrefs.SetFloat ("time1", this.timer);
-
-            //Debug.Log("scene1 after high score = " + PlayerPrefs.GetFloat("time1"));
-        } 
-		/* if this is scene 2 and this time 
+        newHighScore = false;
+        if (SceneManager.GetActiveScene().name == "scene1")
+        {
+            if (PlayerPrefs.GetFloat("time1", 0) == 0)
+            {
+                PlayerPrefs.SetFloat("time1", this.timer);
+            }
+            else if(PlayerPrefs.GetFloat("time1", 0) > this.timer)
+            {
+                PlayerPrefs.SetFloat("time1", this.timer);
+                newHighScore = true;
+            }
+        }
+        /* if this is scene 2 and this time 
 		 * was faster than 1000 seconds...*/
-		else if (SceneManager.GetActiveScene().name == "scene2" && 
-			PlayerPrefs.GetFloat ("time2") > this.timer) {
-            /* ...then set the fastest time for 
-			 * scene 2 to this time*/
-            //Debug.Log("set scene2 high score");
-            PlayerPrefs.SetFloat ("time2", this.timer);
-		}
-		/* this must be scene 3.  if this time
-		 * was faster than 1000 seconds...*/
-		else if (SceneManager.GetActiveScene().name == "scene3" && 
-            PlayerPrefs.GetFloat ("time3") > this.timer) {
-            /*...then set the fastest time for 
-			 * scene 3 to this time*/
-            //Debug.Log("set scene3 high score");
-			PlayerPrefs.SetFloat ("time3", this.timer);
-		}
+        if (SceneManager.GetActiveScene().name == "scene2")
+        {
+            if (PlayerPrefs.GetFloat("time2", 0) == 0)
+            {
+                PlayerPrefs.SetFloat("time2", this.timer);
+            }
+            else if (PlayerPrefs.GetFloat("time2", 0) > this.timer)
+            {
+                PlayerPrefs.SetFloat("time2", this.timer);
+                newHighScore = true;
+            }
+        }
+        /* if this is scene 3 and this time 
+         * was faster than 1000 seconds...*/
+        if (SceneManager.GetActiveScene().name == "scene3")
+        {
+            if (PlayerPrefs.GetFloat("time3", 0) == 0)
+            {
+                PlayerPrefs.SetFloat("time3", this.timer);
+            }
+            else if (PlayerPrefs.GetFloat("time3", 0) > this.timer)
+            {
+                PlayerPrefs.SetFloat("time3", this.timer);
+                newHighScore = true;
+            }
+        }
+        Debug.Log("newHighScore = " + newHighScore.ToString());
+        //Changes game state to levelComplete or YouWin
         if (SceneManager.GetActiveScene().name == "scene3")
             YouWin();
         else

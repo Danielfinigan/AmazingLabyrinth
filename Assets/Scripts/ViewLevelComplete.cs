@@ -7,6 +7,7 @@ public class ViewLevelComplete : MonoBehaviour {
 
 	public Text timerLabel;
 	public Text fastestLabel;
+    public Text newHighScore;
 
 	void Update () {
 		if (GameManager.instance.currentGameState == GameState.inGame) {
@@ -20,7 +21,15 @@ public class ViewLevelComplete : MonoBehaviour {
 				fastestLabel.text = ("Fastest Time:"+PlayerPrefs.GetFloat ("time2").ToString ("0000"));
 			}
 			else fastestLabel.text = ("Fastest Time:"+PlayerPrefs.GetFloat ("time3").ToString ("0000"));
-			
+
+
+            Debug.Log("newHighScoreInComplete = " + GameManager.instance.newHighScore.ToString());
+
+            if (GameManager.instance.newHighScore)
+            {
+                Debug.Log("Why wont you work");
+                newHighScore.enabled = true;
+            }
 		}
 	}
 }

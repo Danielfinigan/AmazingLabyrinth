@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 
-public class YouWin : MonoBehaviour {
+public class ViewYouWin : MonoBehaviour {
     public Text timerLabel;
 	public Text fastestLabel;
 
