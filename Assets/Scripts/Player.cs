@@ -5,7 +5,7 @@ public class Player : MonoBehaviour {
 
 public static Player instance;
 
-    [SerializeField] private float speed = 0f;
+    [SerializeField] private float speed = 15f;
     public bool controlReverse = false;
     public Rigidbody rb = new Rigidbody();
 
