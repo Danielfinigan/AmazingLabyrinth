@@ -8,6 +8,8 @@ public class WinTrigger : MonoBehaviour {
 	{
 		if (other.tag == "Player") {
 			GameManager.instance.LevelComplete();
+			Player.instance.rb.constraints = RigidbodyConstraints.FreezePosition;
+
 		}
 	}
 }
