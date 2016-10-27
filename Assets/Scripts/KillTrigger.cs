@@ -10,6 +10,7 @@ public class KillTrigger : MonoBehaviour {
         {
             GameManager.instance.GameOver();
             Player.instance.rb.constraints = RigidbodyConstraints.FreezePosition;
+            Debug.Log("Freeze Constraints");
         }
 	}
 }
