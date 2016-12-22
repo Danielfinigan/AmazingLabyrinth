@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		if (timeStarted == true) {
 			timer += Time.deltaTime;
-			seconds = (timer ).ToString ("0000");
+			seconds = (timer).ToString ("0000");
 		}
 	}
 }
